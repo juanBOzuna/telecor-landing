@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" height="291" viewBox="0 0 297 291">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="205" width="297" height="291" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="telecor_logo_4" transform="translate(0 -205)" clip-path="url(#clip-path)" style="isolation: isolate">
+    <g id="telecor_logo_3" transform="translate(-105 17)">
+      <g id="Emblem" transform="translate(128 204)">
+        <rect id="Rectángulo_3" data-name="Rectángulo 3" width="194" height="22" rx="11" transform="translate(5 60)" fill="#4eb155"/>
+        <rect id="Rectángulo_4" data-name="Rectángulo 4" width="194" height="22" rx="11" transform="translate(5 105)" fill="#4eb155"/>
+        <rect id="Rectángulo_5" data-name="Rectángulo 5" width="194" height="22" rx="11" transform="translate(5 150)" fill="#4eb155"/>
+        <rect id="Rectángulo_6" data-name="Rectángulo 6" width="194" height="22" rx="11" transform="translate(5 195)" fill="#4eb155"/>
+        <rect id="Rectángulo_7" data-name="Rectángulo 7" width="8" height="190" rx="4" transform="translate(220)" fill="#09653e"/>
+        <circle id="Elipse_1" data-name="Elipse 1" cx="16" cy="16" r="16" transform="translate(208 198)" fill="#09653e"/>
+        <text id="T" transform="translate(-23 262)" fill="#09653e" font-size="387" font-family="SegoePrint, Segoe Print"><tspan x="0" y="0">T</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
