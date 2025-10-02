@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="utf--8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo — Persianas Telecor</title>
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#ffffff" id="metaThemeColor" />
+
+  <script>
+    (() => {
+      const t = localStorage.getItem('theme');
+      const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && sysDark)) document.documentElement.classList.add('dark');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#6366f1', foreground: '#ffffff' },
+          },
+          boxShadow: {
+            header: '0 10px 30px -10px rgba(2,6,23,.25)',
+            card: '0 10px 30px -12px rgba(2,6,23,.20)',
+          },
+          keyframes: {
+            'float': { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            'blob': {
+              '0%': { transform: 'translate(0px,0px) scale(1)' },
+              '33%': { transform: 'translate(10px,-8px) scale(1.05)' },
+              '66%': { transform: 'translate(-8px,6px) scale(0.98)' },
+              '100%': { transform: 'translate(0px,0px) scale(1)' }
+            },
+            'shimmer': { '100%': { transform: 'translateX(100%)' } }
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            blob: 'blob 14s ease-in-out infinite',
+            shimmer: 'shimmer 1.8s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .container-px {@apply mx-auto max-w-7xl px-4;}
+      .section {@apply py-16 md:py-24;}
+      .chip {@apply rounded-full bg-white/70 px-3 py-1 text-sm ring-1 ring-black/5 backdrop-blur dark:bg-slate-900/60 dark:ring-white/10;}
+      .reveal {@apply opacity-0 translate-y-3;}
+      .reveal-in {@apply opacity-100 translate-y-0 transition duration-700 ease-out;}
+      .glass {@apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10;}
+      .hocus {@apply hover:brightness-[1.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500/60;}
+      .navlink {
+        @apply relative font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white
+               after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-indigo-500 after:to-emerald-400 after:transition-all after:duration-300 hover:after:w-full;
+      }
+      /* -- NUEVO: Estilo para botones deshabilitados -- */
+      .disabled {@apply opacity-50 cursor-not-allowed pointer-events-none;}
+    }
+    @layer components {
+      .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition active:translate-y-[1px]
+               focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500/60;
+      }
+      .btn-primary {
+        @apply btn bg-emerald-600 text-white shadow-sm hocus;
+      }
+      .btn-ghost {
+        @apply btn border border-white/30 bg-white/75 text-slate-900 dark:text-white dark:border-white/10
+               dark:bg-slate-900/70 hover:bg-white/90 dark:hover:bg-slate-800;
+      }
+      .card {
+        @apply glass rounded-2xl shadow-card transition-all duration-300;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="bg-neutral-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 antialiased selection:bg-emerald-200/60 dark:selection:bg-emerald-400/25 font-sans">
+
+  <div class="pointer-events-none fixed -top-24 inset-x-0 z-[39] h-40 opacity-50 blur-3xl" aria-hidden="true"
+    style="background: radial-gradient(40% 60% at 50% 0%, rgba(99,102,241,.35), transparent 60%);"></div>
+
+  <header id="siteHeader" class="sticky top-0 z-50 transition-all duration-300 border-b border-white/20 dark:border-white/10 bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl supports-[backdrop-filter]:bg-white/55 will-change-transform">
+    <div class="container-px">
+        <div class="flex h-16 items-center justify-between">
+            <a href="index.html" class="group inline-flex items-center gap-2" aria-label="Inicio">
+                <img src="telecor_logo_5.svg" alt="Telecor" class="h-8 w-8 animate-float" />
+                <span class="text-[20px] font-semibold tracking-tight">Persianas Telecor</span>
+            </a>
+            <nav class="hidden md:block" aria-label="Principal">
+                <ul class="flex items-center gap-8">
+                    <li><a class="navlink" href="index.html#servicios">Servicios</a></li>
+                    <li><a class="navlink is-active" href="catalogo.html">Catálogo</a></li>
+                    <li><a class="navlink" href="index.html#precios">Precios</a></li>
+                    <li><a class="navlink" href="index.html#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button id="themeToggle" class="inline-flex h-10 w-10 items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500/60" aria-label="Cambiar tema">
+                    <svg id="iconSun" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg id="iconMoon" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor" /></svg>
+                </button>
+                <a href="index.html#contacto" class="hidden md:inline-flex btn-primary px-4 py-2"><span>Contactar</span></a>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container-px text-center">
+      <div class="reveal" data-reveal>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight [text-wrap:balance]">
+          Nuestro Catálogo de Productos
+        </h1>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+          Explora nuestra selección de soluciones a medida. Filtra por categoría y encuentra la opción perfecta para tu hogar u oficina.
+        </p>
+      </div>
+    </section>
+
+    <section id="catalogo-productos" class="section pt-0">
+      <div class="container-px">
+        
+        <div id="filter-controls" class="mb-12 flex flex-wrap justify-center gap-3 reveal" data-reveal>
+          <button data-filter="todos" class="btn-primary px-4 py-2">Todos</button>
+          <button data-filter="persianas" class="btn-ghost px-4 py-2">Persianas</button>
+          <button data-filter="cortinas" class="btn-ghost px-4 py-2">Cortinas</button>
+          <button data-filter="blackouts" class="btn-ghost px-4 py-2">Blackouts</button>
+          <button data-filter="exteriores" class="btn-ghost px-4 py-2">Exteriores</button>
+        </div>
+
+        <div id="product-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 min-h-[50vh]">
+          
+          <article class="card flex-col overflow-hidden" data-category="persianas">
+            <img src="https://placehold.co/400x300/ecfdf5/166534" alt="Persiana enrollable" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Persianas Enrollables</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Modernas y minimalistas, perfectas para un control preciso de la luz.</p></div>
+          </article>
+          
+          <article class="card flex-col overflow-hidden" data-category="cortinas">
+            <img src="https://placehold.co/400x300/dcfce7/166534" alt="Cortinas tradicionales" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Cortinas Tradicionales</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">La calidez y elegancia de siempre, confeccionadas a medida en velos y textiles.</p></div>
+          </article>
+
+          <article class="card flex-col overflow-hidden" data-category="blackouts">
+            <img src="https://placehold.co/400x300/f0fdfa/0f766e" alt="Blackout para dormitorio" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Blackouts y Opacidad</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Consigue oscuridad total y máxima privacidad, ideal para dormitorios y salas de TV.</p></div>
+          </article>
+
+          <article class="card flex-col overflow-hidden" data-category="persianas">
+            <img src="https://placehold.co/400x300/f0fdf4/166534" alt="Paneles japoneses" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Paneles Japoneses</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Una solución elegante para grandes ventanales y división de espacios.</p></div>
+          </article>
+
+           <article class="card flex-col overflow-hidden" data-category="exteriores">
+            <img src="https://placehold.co/400x300/fef2f2/b91c1c" alt="Toldos y pérgolas" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Toldos y Pérgolas</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Amplía tus espacios habitables al exterior, protegiendo del sol con estilo.</p></div>
+          </article>
+
+          <article class="card flex-col overflow-hidden" data-category="persianas">
+            <img src="https://placehold.co/400x300/fff7ed/c2410c" alt="Persianas de madera" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Persianas de Madera</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Aportan una calidez natural y un estilo atemporal con un toque de distinción.</p></div>
+          </article>
+
+          <article class="card flex-col overflow-hidden" data-category="cortinas">
+            <img src="https://placehold.co/400x300/f5f3ff/6d28d9" alt="Cortinas Romanas" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Cortinas Romanas</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Pliegues horizontales que crean un look sofisticado y ordenado al recogerse.</p></div>
+          </article>
+
+          <article class="card flex-col overflow-hidden" data-category="persianas">
+            <img src="https://placehold.co/400x300/ecfeff/0891b2" alt="Persianas Verticales" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Persianas Verticales</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Ideales para puertas corredizas y ventanales de piso a techo, muy funcionales.</p></div>
+          </article>
+            
+          <article class="card flex-col overflow-hidden" data-category="exteriores">
+            <img src="https://placehold.co/400x300/fafafa/0a0a0a" alt="Parasoles" class="w-full h-48 object-cover">
+            <div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold">Parasoles Arquitectónicos</h3><p class="mt-2 text-sm/6 text-slate-600 dark:text-slate-300 flex-grow">Soluciones de diseño para fachadas que controlan la luz y temperatura del edificio.</p></div>
+          </article>
+
+        </div>
+
+        <div id="pagination-controls" class="mt-16 flex justify-center items-center gap-2">
+            </div>
+
+      </div>
+    </section>
+  </main>
+  
+  <footer class="bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-900/5 dark:border-white/5">
+    <div class="section container-px text-center text-sm text-slate-500 dark:text-slate-400">
+        © 2025 Persianas Telecor. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Lógica del Header y Tema (simplificada para este script) ---
+      const themeToggle = document.getElementById('themeToggle');
+      const setTheme = (mode) => {
+        document.documentElement.classList.toggle('dark', mode === 'dark');
+        localStorage.setItem('theme', mode);
+      };
+      themeToggle?.addEventListener('click', () => setTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark'));
+      
+      // --- LÓGICA DE FILTRADO Y PAGINACIÓN ---
+      const filterControls = document.getElementById('filter-controls');
+      const allProducts = Array.from(document.querySelectorAll('#product-grid article'));
+      const productGrid = document.getElementById('product-grid');
+      const paginationControls = document.getElementById('pagination-controls');
+
+      // 1. Estado de la aplicación
+      let state = {
+        products: allProducts,
+        currentFilter: 'todos',
+        currentPage: 1,
+        itemsPerPage: 6,
+      };
+
+      // 2. Función principal para renderizar todo
+      function render() {
+        // Primero, filtramos los productos
+        const filteredProducts = state.products.filter(p => 
+            state.currentFilter === 'todos' || p.dataset.category === state.currentFilter
+        );
+
+        // Calculamos la paginación
+        const totalPages = Math.ceil(filteredProducts.length / state.itemsPerPage);
+        if(state.currentPage > totalPages) state.currentPage = 1; // Resetea si la página actual no existe en el nuevo filtro
+
+        const startIndex = (state.currentPage - 1) * state.itemsPerPage;
+        const endIndex = startIndex + state.itemsPerPage;
+        const productsToShow = filteredProducts.slice(startIndex, endIndex);
+
+        // Renderizamos los productos
+        productGrid.innerHTML = ''; // Limpiamos el grid
+        if (productsToShow.length === 0) {
+            productGrid.innerHTML = `<p class="col-span-full text-center text-slate-500">No se encontraron productos en esta categoría.</p>`;
+        } else {
+            productsToShow.forEach(p => productGrid.appendChild(p));
+        }
+
+        // Renderizamos los controles de paginación
+        paginationControls.innerHTML = ''; // Limpiamos controles
+        if (totalPages > 1) {
+          // Botón Anterior
+          const prevButton = document.createElement('button');
+          prevButton.innerText = 'Anterior';
+          prevButton.className = 'btn-ghost px-4 py-2 text-sm';
+          if (state.currentPage === 1) prevButton.classList.add('disabled');
+          prevButton.addEventListener('click', () => {
+            if(state.currentPage > 1) {
+              state.currentPage--;
+              render();
+            }
+          });
+          paginationControls.appendChild(prevButton);
+
+          // Botones de página
+          for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.innerText = i;
+            pageButton.className = state.currentPage === i ? 'btn-primary w-10 h-10' : 'btn-ghost w-10 h-10';
+            pageButton.addEventListener('click', () => {
+              state.currentPage = i;
+              render();
+            });
+            paginationControls.appendChild(pageButton);
+          }
+
+          // Botón Siguiente
+          const nextButton = document.createElement('button');
+          nextButton.innerText = 'Siguiente';
+          nextButton.className = 'btn-ghost px-4 py-2 text-sm';
+          if (state.currentPage === totalPages) nextButton.classList.add('disabled');
+          nextButton.addEventListener('click', () => {
+            if(state.currentPage < totalPages) {
+              state.currentPage++;
+              render();
+            }
+          });
+          paginationControls.appendChild(nextButton);
+        }
+      }
+
+      // 3. Event Listeners
+      filterControls.addEventListener('click', (e) => {
+        if (e.target.tagName !== 'BUTTON') return;
+        
+        state.currentFilter = e.target.dataset.filter;
+        state.currentPage = 1; // ¡Importante! Resetear a la página 1 al cambiar de filtro
+
+        // Actualizar estilo de botones de filtro
+        filterControls.querySelectorAll('button').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-ghost');
+        });
+        e.target.classList.remove('btn-ghost');
+        e.target.classList.add('btn-primary');
+
+        render();
+      });
+
+      // 4. Renderizado inicial
+      render();
+    });
+  </script>
+
+</body>
+</html>

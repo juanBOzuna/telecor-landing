@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     parScroll();
     window.addEventListener('scroll', () => requestAnimationFrame(parScroll), { passive: true });
   }
+  
 });
 
 const toggleBtn = document.getElementById('toggleProductsBtn');
@@ -219,4 +220,63 @@ if (toggleBtn) {
         });
     }, 150); 
   });
+}
+
+
+// --- Lógica para el Carrusel de Testimonios ---
+const carousel = document.getElementById('testimonial-carousel');
+if (carousel) {
+  const track = document.getElementById('carousel-track');
+  const slides = Array.from(track.children);
+  const nextButton = document.getElementById('carousel-next');
+  const prevButton = document.getElementById('carousel-prev');
+  const dotsNav = document.getElementById('carousel-dots');
+
+  // Crear los puntos de paginación
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-dot');
+    dot.setAttribute('aria-label', `Ir al testimonio ${index + 1}`);
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+    dotsNav.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsNav.children);
+  let currentIndex = 0;
+
+  const goToSlide = (index) => {
+    if (index < 0 || index >= slides.length) return;
+    track.style.transform = 'translateX(-' + slides[index].clientWidth * index + 'px)';
+    currentIndex = index;
+    updateControls();
+  };
+
+  const updateControls = () => {
+    // Actualizar botones Prev/Next
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === slides.length - 1;
+
+    // Actualizar puntos
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('carousel-dot-active', index === currentIndex);
+    });
+  };
+
+  nextButton.addEventListener('click', () => {
+    goToSlide(currentIndex + 1);
+  });
+
+  prevButton.addEventListener('click', () => {
+    goToSlide(currentIndex - 1);
+  });
+  
+  // Ajustar carrusel si la ventana cambia de tamaño
+  window.addEventListener('resize', () => {
+    goToSlide(currentIndex);
+  });
+
+  // Inicializar
+  goToSlide(0);
 }

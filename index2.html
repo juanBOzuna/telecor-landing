@@ -2,6 +2,9 @@
   <html lang="es" class="scroll-smooth">
 
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Persianas Telecor — Landing</title>
@@ -24,6 +27,9 @@
         darkMode: 'class',
         theme: {
           extend: {
+             fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
             colors: {
               brand: { DEFAULT: '#6366f1', foreground: '#ffffff' },
             },
@@ -119,6 +125,14 @@
         transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
       }
 
+         /* --- AÑADE ESTO --- */
+    .carousel-dot {
+      @apply w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600 transition-all duration-300 cursor-pointer;
+    }
+    .carousel-dot-active {
+      @apply bg-emerald-500 scale-125;
+    }
+
       /* ... otras clases de utilidad ... */
     }
 
@@ -131,6 +145,8 @@
     .reveal-in {
         @apply translate-y-0 opacity-100;
     }
+
+     
     </style>
   </head>
 
@@ -155,7 +171,7 @@
       <div class="container-px">
         <div class="flex h-16 items-center justify-between">
           <!-- Brand -->
-          <a href="#" class="group inline-flex items-center gap-2" aria-label="Inicio">
+          <a href="index2.html" class="group inline-flex items-center gap-2" aria-label="Inicio">
             <span class="relative grid place-items-center">
               <img src="telecor_logo_5.svg" alt="Telecor" class="h-8 w-8 animate-float" />
               <span
@@ -167,8 +183,7 @@
           <!-- Nav desktop -->
           <nav class="hidden md:block" aria-label="Principal">
             <ul class="flex items-center gap-8">
-              <li><a class="navlink" href="#servicios">Servicios</a></li>
-              <li><a class="navlink" href="#casos">Casos</a></li>
+                <li><a class="navlink" href="catalogo.html">Catálogo</a></li>
               <li><a class="navlink" href="#precios">Precios</a></li>
               <li><a class="navlink" href="#faq">FAQ</a></li>
             </ul>
@@ -293,7 +308,7 @@
 
           <div class="mt-7 flex flex-wrap items-center gap-3 reveal" data-reveal>
             <a href="#contacto" class="btn-primary px-5 py-3">Cotizar ahora</a>
-            <a href="#catalogo" class="btn-ghost px-5 py-3">Ver catálogo</a>
+            <a href="#servicios" class="btn-ghost px-5 py-3">Productos Principales</a>
           </div>
 
           <div class="mt-6 flex flex-wrap gap-2 text-sm reveal" data-reveal>
@@ -384,113 +399,90 @@
       </div>
     </section>
 
+    
 
-    <!-- <section  class="section"> -->
-    <section id="casos-exito" class="container-px">
 
-      <div class="text-center reveal" data-reveal>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-          Clientes que Confían en Nosotros
-        </h2>
-        <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
-          Descubre por qué tanto hogares como empresas en Cartagena y Bolívar eligen nuestra calidad y servicio para
-          transformar sus espacios.
-        </p>
-      </div>
+  <section id="casos-exito" class="section">
+  <div class="container-px">
 
-      <div class="mt-12 grid gap-6 md:gap-8 md:grid-cols-2">
+    <div class="text-center reveal" data-reveal>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+        Clientes que Confían en Nosotros
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300">
+        Descubre por qué tanto hogares como empresas en Cartagena y Bolívar eligen nuestra calidad y servicio para transformar sus espacios.
+      </p>
+    </div>
 
-        <article class="card p-6 md:p-8 reveal" data-reveal>
-          <div class="flex items-center gap-1">
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
+    <div id="testimonial-carousel" class="mt-12 relative reveal" data-reveal>
+      <div class="overflow-hidden">
+        <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+          
+          <div class="w-full flex-shrink-0 px-2 md:px-4">
+            <article class="card p-6 md:p-8 h-full">
+              <div class="flex items-center gap-1">
+                <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg>
+                <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg>
+                <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg>
+                <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg>
+                <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg>
+              </div>
+              <blockquote class="mt-4"><p class="text-base text-slate-700 dark:text-slate-200">"El servicio fue impecable de principio a fin. La asesoría me ayudó a elegir las cortinas perfectas y la instalación fue increíblemente rápida. ¡Mi casa se siente como nueva!"</p></blockquote>
+              <footer class="mt-6 flex items-center gap-4">
+                <img src="https://placehold.co/100x100/E0E7FF/4F46E5" alt="Foto de Ana Lucía Vélez" class="h-12 w-12 rounded-full object-cover">
+                <div><p class="font-semibold text-slate-900 dark:text-white">Ana Lucía Vélez</p><p class="text-sm text-slate-500 dark:text-slate-400">Residencia en Castillogrande</p></div>
+              </footer>
+            </article>
           </div>
-          <blockquote class="mt-4">
-            <p class="text-base text-slate-700 dark:text-slate-200">
-              "El servicio fue impecable de principio a fin. La asesoría me ayudó a elegir las cortinas perfectas para mi
-              sala y la instalación fue increíblemente rápida y profesional. ¡Mi casa se siente como nueva!"
-            </p>
-          </blockquote>
-          <footer class="mt-6 flex items-center gap-4">
-            <img src="https://placehold.co/100x100/E0E7FF/4F46E5" alt="Foto de Ana Lucía Vélez"
-              class="h-12 w-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold text-slate-900 dark:text-white">Ana Lucía Vélez</p>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Residencia en Castillogrande</p>
-            </div>
-          </footer>
-        </article>
-
-        <article class="card p-6 md:p-8 reveal" data-reveal style="transition-delay: 150ms;">
-          <div class="flex items-center gap-1">
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
-            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"
-                clip-rule="evenodd" />
-            </svg>
+          
+          <div class="w-full flex-shrink-0 px-2 md:px-4">
+            <article class="card p-6 md:p-8 h-full">
+              <div class="flex items-center gap-1"><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg></div>
+              <blockquote class="mt-4"><p class="text-base text-slate-700 dark:text-slate-200">"Necesitábamos blackouts para nuestras oficinas. Telecor superó las expectativas en calidad y precio. El equipo es muy profesional."</p></blockquote>
+              <footer class="mt-6 flex items-center gap-4">
+                <img src="https://placehold.co/100x100/E0E7FF/4338CA" alt="Foto de Carlos Fernández" class="h-12 w-12 rounded-full object-cover">
+                <div><p class="font-semibold text-slate-900 dark:text-white">Carlos Fernández</p><p class="text-sm text-slate-500 dark:text-slate-400">Oficinas en Manga</p></div>
+              </footer>
+            </article>
           </div>
-          <blockquote class="mt-4">
-            <p class="text-base text-slate-700 dark:text-slate-200">
-              "Necesitábamos blackouts funcionales y estéticos para nuestras oficinas. Telecor nos ofreció una solución a
-              medida que superó nuestras expectativas en calidad y precio. El equipo es muy profesional."
-            </p>
-          </blockquote>
-          <footer class="mt-6 flex items-center gap-4">
-            <img src="https://placehold.co/100x100/E0E7FF/4338CA" alt="Foto de Carlos Fernández"
-              class="h-12 w-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold text-slate-900 dark:text-white">Carlos Fernández</p>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Oficinas en Manga</p>
-            </div>
-          </footer>
-        </article>
 
+          <div class="w-full flex-shrink-0 px-2 md:px-4">
+            <article class="card p-6 md:p-8 h-full">
+              <div class="flex items-center gap-1"><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg></div>
+              <blockquote class="mt-4"><p class="text-base text-slate-700 dark:text-slate-200">"¡Estoy enamorada de mis nuevas persianas! El control de la luz es fantástico y le dan un toque de elegancia increíble a mi habitación. Totalmente recomendados."</p></blockquote>
+              <footer class="mt-6 flex items-center gap-4">
+                <img src="https://placehold.co/100x100/fbcfe8/831843" alt="Foto de Sofía Martínez" class="h-12 w-12 rounded-full object-cover">
+                <div><p class="font-semibold text-slate-900 dark:text-white">Sofía Martínez</p><p class="text-sm text-slate-500 dark:text-slate-400">Apartamento en Bocagrande</p></div>
+              </footer>
+            </article>
+          </div>
+
+          <div class="w-full flex-shrink-0 px-2 md:px-4">
+            <article class="card p-6 md:p-8 h-full">
+              <div class="flex items-center gap-1"><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg><svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10.868 2.884c.321-.662 1.215-.662 1.536 0l1.815 3.734 4.118.6c.733.107 1.025.99.494 1.503l-2.979 2.903.703 4.102c.124.728-.638 1.283-1.296.942L10 14.85l-3.679 1.934c-.658.34-1.42-.214-1.296-.942l.703-4.102-2.979-2.903c-.53-.513-.239-1.396.494-1.503l4.118-.6 1.815-3.734z"/></svg></div>
+              <blockquote class="mt-4"><p class="text-base text-slate-700 dark:text-slate-200">"Como diseñador, valoro a los proveedores que cumplen. Telecor es mi aliado número uno para todo lo relacionado con cortinería. Su garantía me da total tranquilidad."</p></blockquote>
+              <footer class="mt-6 flex items-center gap-4">
+                <img src="https://placehold.co/100x100/dbeafe/1e3a8a" alt="Foto de David Rojas" class="h-12 w-12 rounded-full object-cover">
+                <div><p class="font-semibold text-slate-900 dark:text-white">David Rojas</p><p class="text-sm text-slate-500 dark:text-slate-400">Proyecto de Remodelación</p></div>
+              </footer>
+            </article>
+          </div>
+
+        </div>
       </div>
-      <!-- </div> -->
-    </section>
+      
+      <button id="carousel-prev" class="absolute top-1/2 left-0 -translate-y-1/2 z-10 btn-ghost rounded-full w-12 h-12 p-0 justify-center disabled:opacity-30 disabled:cursor-not-allowed">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+      </button>
+      <button id="carousel-next" class="absolute top-1/2 right-0 -translate-y-1/2 z-10 btn-ghost rounded-full w-12 h-12 p-0 justify-center disabled:opacity-30 disabled:cursor-not-allowed">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+      </button>
+    </div>
+
+    <div id="carousel-dots" class="mt-8 flex justify-center gap-3"></div>
+
+  </div>
+</section>
 
     <section id="servicios" class="section bg-slate-50/50 dark:bg-slate-900/50">
       <div class="container-px">
@@ -604,6 +596,39 @@
 
       </div>
     </section>
+
+
+     <section id="destacado" class="section bg-slate-50/50 dark:bg-slate-900/50">
+      <div class="container-px">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal" data-reveal>
+            <img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?q=80&w=2670&auto=format&fit=crop" alt="Sala de estar moderna con sistema de domótica" class="rounded-2xl shadow-lg w-full h-auto">
+          </div>
+          <div class="reveal" data-reveal style="transition-delay: 150ms;">
+             <span class="badge-dot">
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-semibold">Innovación y Confort</span>
+            </span>
+            <h2 class="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">
+              Lleva tus Espacios al Siguiente Nivel con la <span class="text-emerald-500">Motorización</span>
+            </h2>
+            <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+              Imagina controlar la luz natural de todo tu hogar u oficina con solo presionar un botón. Nuestros sistemas motorizados son compatibles con los principales asistentes de voz y sistemas de domótica.
+            </p>
+            <ul class="mt-6 space-y-3 text-slate-700 dark:text-slate-200">
+              <li class="flex items-center gap-3"><svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Operación silenciosa y eficiente.</span></li>
+              <li class="flex items-center gap-3"><svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Aumenta la seguridad y el valor de tu propiedad.</span></li>
+              <li class="flex items-center gap-3"><svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Ideal para ventanas de difícil acceso.</span></li>
+            </ul>
+            <div class="mt-8">
+              <a href="index2.html#contacto" class="btn-primary px-5 py-3">Solicitar Asesoría</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
   <section id="contacto" class="section bg-slate-50/50 dark:bg-slate-900/50">
 
     <div class="container-px"> 
@@ -668,6 +693,47 @@
     <!-- placeholder para scroll -->
     <!-- <section class="h-[30vh]"></section> -->
     </main>
+
+    
+  <footer class="bg-slate-100/50 dark:bg-slate-900/50 border-t border-slate-900/5 dark:border-white/5">
+      <div class="section container-px">
+          <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                  <a href="index.html" class="group inline-flex items-center gap-2" aria-label="Inicio">
+                      <span class="relative grid place-items-center">
+                          <img src="telecor_logo_5.svg" alt="Telecor" class="h-8 w-8" />
+                      </span>
+                      <span class="text-lg font-semibold tracking-tight">Persianas Telecor</span>
+                  </a>
+                  <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-sm">
+                      Soluciones a medida en cortinas, persianas y blackouts con instalación profesional en Cartagena y Bolívar.
+                  </p>
+              </div>
+              <div class="grid grid-cols-2 gap-8">
+                  <div>
+                      <h4 class="font-semibold text-slate-900 dark:text-white">Navegación</h4>
+                      <ul class="mt-4 space-y-2">
+                          <li><a href="index.html#servicios" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500 transition">Servicios</a></li>
+                          <li><a href="catalogo.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500 transition">Catálogo</a></li>
+                          <li><a href="index.html#contacto" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500 transition">Contacto</a></li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h4 class="font-semibold text-slate-900 dark:text-white">Contacto</h4>
+                      <ul class="mt-4 space-y-2">
+                           <li><a href="https://wa.me/573001234567" target="_blank" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500 transition">(+57) 300 123 4567</a></li>
+                           <li><a href="mailto:contacto@telecor.com" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500 transition">contacto@telecor.com</a></li>
+                           <li class="text-slate-500 dark:text-slate-400">Cartagena, Colombia</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="mt-12 pt-8 border-t border-slate-900/5 dark:border-white/5 text-center text-sm text-slate-500 dark:text-slate-400">
+              © 2025 Persianas Telecor. Todos los derechos reservados.
+          </div>
+      </div>
+  </footer>
+
 
     <!-- Botón volver arriba con progreso -->
     <button id="toTop" aria-label="Volver arriba"
